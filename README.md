@@ -23,9 +23,7 @@ The dashboard provides a high-level overview and allows for deeper exploration o
 
 Here is a snapshot of the main dashboard, showcasing the key metrics and visualizations.
 
-*You will need to upload the screenshot to your GitHub repository and ensure the path is correct.*
-
-![Airlines Performance Dashboard](image_acecee.png)
+![Airlines Performance Dashboard](DashBoard_SS.jpg)
 
 ---
 
@@ -44,7 +42,7 @@ To set up and run this project on your local machine, follow these steps:
 
 1.  **Clone the Repository:**
     ```bash
-    git clone [https://github.com/your-username/your-repository-name.git](https://github.com/your-username/your-repository-name.git)
+    https://github.com/JonahCha/US-Airline-Performance-Delay-Analysis.git
     ```
 2.  **Database Setup:**
     * Set up a SQL server.
