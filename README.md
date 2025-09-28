@@ -40,9 +40,9 @@ This project was built using the following tools and technologies:
 
 To set up and run this project on your local machine, follow these steps:
 
-1.  **Clone the Repository:**
+1.  **Download the files from:**
     ```bash
-    https://github.com/JonahCha/US-Airline-Performance-Delay-Analysis.git
+    https://drive.google.com/drive/folders/1C7AYUX__N8JkwZfQDoDcGXKUqZEZciBE?usp=sharing
     ```
 2.  **Database Setup:**
     * Set up a SQL server.
