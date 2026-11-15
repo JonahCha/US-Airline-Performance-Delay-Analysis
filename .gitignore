@@ -1,9 +1,0 @@
-__pycache__/
-*.pyc
-.pytest_cache/
-.venv/
-venv/
-data/flights.csv
-data/processed/
-*.pbix
-.DS_Store
