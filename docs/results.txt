@@ -1,0 +1,38 @@
+Total flights: 5,819,079
+Cancelled: 89,884 (1.54%)
+On-time arrivals (within 15 min, operated flights): 82.1%
+Mean arrival delay (operated flights): 4.41 minutes
+
+Cancellation causes (share of cancelled flights):
+  Weather                48,851 (54.3%)
+  Carrier                25,262 (28.1%)
+  National Air System    15,749 (17.5%)
+  Security               22 (0.0%)
+
+On-time rate by airline (highest first):
+  Hawaiian Airlines Inc.           89.5%  (76,041 flights)
+  Alaska Airlines Inc.             87.7%  (171,439 flights)
+  Delta Air Lines Inc.             87.0%  (870,275 flights)
+  American Airlines Inc.           82.4%  (712,935 flights)
+  US Airways Inc.                  82.0%  (194,223 flights)
+  Skywest Airlines Inc.            82.0%  (576,814 flights)
+  Southwest Airlines Co.           81.7%  (1,242,403 flights)
+  Virgin America                   81.5%  (61,248 flights)
+  Atlantic Southeast Airlines      81.0%  (554,752 flights)
+  United Air Lines Inc.            80.0%  (507,762 flights)
+  American Eagle Airlines Inc.     79.0%  (278,791 flights)
+  JetBlue Airways                  78.1%  (262,042 flights)
+  Frontier Airlines Inc.           74.6%  (90,090 flights)
+  Spirit Air Lines                 71.2%  (115,193 flights)
+
+Busiest origin airports:
+  ATL  Hartsfield-Jackson Atlanta International Airport 346,836 flights, 84.2% on time
+  ORD  Chicago O'Hare International Airport       285,884 flights, 76.6% on time
+  DFW  Dallas/Fort Worth International Airport    239,551 flights, 79.1% on time
+  DEN  Denver International Airport               196,055 flights, 78.4% on time
+  LAX  Los Angeles International Airport          194,673 flights, 79.9% on time
+  SFO  San Francisco International Airport        148,008 flights, 80.4% on time
+  PHX  Phoenix Sky Harbor International Airport   146,815 flights, 82.0% on time
+  IAH  George Bush Intercontinental Airport       146,622 flights, 79.5% on time
+  LAS  McCarran International Airport             133,181 flights, 80.1% on time
+  MSP  Minneapolis-Saint Paul International Airport 112,117 flights, 84.3% on time
