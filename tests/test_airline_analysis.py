@@ -120,3 +120,16 @@ def test_dashboard_html_is_written(tmp_path):
     html = out.read_text(encoding="utf-8")
     assert out.exists() and out.stat().st_size > 1_000_000  # Plotly JS is embedded
     assert "On-time rate" in html and "Number of flights" in html
+
+
+def test_explorer_html_contains_all_tables(tmp_path):
+    from explorer import build_explorer
+    flights, airlines, airports = make_inputs(n=300)
+    s = summarize(clean_flights(flights, airlines, airports))
+    geo = airports.set_index("IATA_CODE")[["AIRPORT", "CITY", "STATE", "LATITUDE", "LONGITUDE"]]
+    s["airports_geo"] = s["airports"].join(geo, how="left")
+    out = build_explorer(s, tmp_path / "explorer.html")
+    html = out.read_text(encoding="utf-8")
+    assert '"airlines":' in html and '"airports":' in html and '"causes":' in html
+    assert "American Airlines Inc." in html
+    assert "</script>" in html and html.count("</script>") == 1

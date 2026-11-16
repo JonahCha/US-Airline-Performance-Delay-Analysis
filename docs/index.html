@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>US Airline Performance 2015</title>
+<style>
+  body { margin:0; font-family: system-ui, -apple-system, Segoe UI, sans-serif; background:#0e1117; color:#e6edf3; }
+  .hero { padding:64px 24px 32px; text-align:center; }
+  h1 { font-size:40px; margin:0 0 12px; }
+  .hero p { color:#8b949e; font-size:18px; max-width:640px; margin:0 auto; line-height:1.5; }
+  .grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap:18px; max-width:960px; margin:24px auto 40px; padding:0 24px; }
+  a.card { display:block; background:#161b22; border:1px solid #2a313c; border-radius:14px; padding:24px; text-decoration:none; color:inherit; transition: transform .15s, border-color .15s; }
+  a.card:hover { transform: translateY(-3px); border-color:#58a6ff; }
+  a.card .emoji { font-size:34px; }
+  a.card h2 { margin:10px 0 8px; font-size:20px; color:#e6edf3; }
+  a.card p { margin:0; color:#8b949e; font-size:15px; line-height:1.5; }
+  a.card .go { display:inline-block; margin-top:14px; color:#58a6ff; font-size:15px; font-weight:600; }
+  footer { text-align:center; color:#8b949e; font-size:14px; padding-bottom:32px; }
+  footer a { color:#58a6ff; }
+</style>
+</head>
+<body>
+<section class="hero">
+  <h1>✈️ US Airline Performance, 2015</h1>
+  <p>5.8 million flights. 14 airlines. Who gets you there on time, and why do flights get cancelled? Pick a view below.</p>
+</section>
+
+<section class="grid">
+  <a class="card" href="dashboard.html">
+    <div class="emoji">📊</div>
+    <h2>Interactive dashboard</h2>
+    <p>KPIs, airline rankings, cancellation causes, monthly trends, busiest airports, and a map. Hover, click, and switch views.</p>
+    <span class="go">Open the dashboard →</span>
+  </a>
+  <a class="card" href="explorer.html">
+    <div class="emoji">🔎</div>
+    <h2>Data explorer</h2>
+    <p>Every table behind the dashboard. Search any airline or airport, sort any column, and click a row for its full breakdown.</p>
+    <span class="go">Explore the data →</span>
+  </a>
+  <a class="card" href="Report_Of_Airlines.pdf">
+    <div class="emoji">📄</div>
+    <h2>Original report</h2>
+    <p>The earlier written analysis. Its headline figures are compared with the verified results in the project README.</p>
+    <span class="go">Read the report →</span>
+  </a>
+</section>
+
+<footer>
+  Code and README on <a href="https://github.com/JonahCha/US-Airline-Performance-Delay-Analysis">GitHub</a> · Data: US DOT Bureau of Transportation Statistics
+</footer>
+</body>
+</html>

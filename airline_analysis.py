@@ -18,6 +18,7 @@ from pathlib import Path
 import pandas as pd
 
 from dashboard import build_dashboard
+from explorer import build_explorer
 from plots import save_figures
 
 DEFAULT_AIRLINES = Path("data/airlines.csv")
@@ -79,11 +80,20 @@ def _partial(df: pd.DataFrame) -> dict:
     operated = df.loc[~cancelled].dropna(subset=["ARRIVAL_DELAY"])
     on_time = operated["ARRIVAL_DELAY"] <= ON_TIME_THRESHOLD_MIN
 
-    by_airline = (
-        pd.DataFrame({"AIRLINE_NAME": operated["AIRLINE_NAME"].astype(object), "ON_TIME": on_time.values})
-        .groupby("AIRLINE_NAME")["ON_TIME"]
-        .agg(flights="size", on_time="sum")
+    op_air = (
+        pd.DataFrame({
+            "AIRLINE_NAME": operated["AIRLINE_NAME"].astype(object).values,
+            "ON_TIME": on_time.values,
+            "DELAY": operated["ARRIVAL_DELAY"].values,
+        })
+        .groupby("AIRLINE_NAME")
+        .agg(operated=("ON_TIME", "size"), on_time=("ON_TIME", "sum"), delay_sum=("DELAY", "sum"))
     )
+    all_air = (
+        pd.DataFrame({"AIRLINE_NAME": df["AIRLINE_NAME"].astype(object).values, "CANCELLED": df["CANCELLED"].values})
+        .groupby("AIRLINE_NAME")["CANCELLED"].agg(all_flights="size", cancelled="sum")
+    )
+    by_airline = all_air.join(op_air, how="outer").fillna(0)
     reasons = (
         df.loc[cancelled, "CANCELLATION_REASON"].astype(object)
         .map(CANCELLATION_REASONS).fillna("Unknown").value_counts()
@@ -125,8 +135,11 @@ def combine(partials: list[dict]) -> dict:
 
     reasons = pd.concat([p["reasons"] for p in partials]).groupby(level=0).sum().sort_values(ascending=False)
     by_airline = pd.concat([p["by_airline"] for p in partials]).groupby(level=0).sum()
-    by_airline["on_time_rate"] = by_airline["on_time"] / by_airline["flights"]
-    by_airline = by_airline[["flights", "on_time_rate"]].sort_values("on_time_rate", ascending=False)
+    by_airline["flights"] = by_airline["operated"]  # on-time base: flights that actually operated
+    by_airline["on_time_rate"] = by_airline["on_time"] / by_airline["operated"]
+    by_airline["cancel_rate"] = by_airline["cancelled"] / by_airline["all_flights"]
+    by_airline["mean_delay"] = by_airline["delay_sum"] / by_airline["operated"]
+    by_airline = by_airline.sort_values("on_time_rate", ascending=False)
     monthly = pd.concat([p["monthly"] for p in partials]).groupby(level=0).sum().sort_index()
     monthly["cancel_rate"] = monthly["cancelled"] / monthly["flights"]
 
@@ -214,6 +227,7 @@ def main() -> None:
     (args.outdir / "results.txt").write_text(report + "\n", encoding="utf-8")
     save_figures(summary, args.outdir / "images")
     build_dashboard(summary, args.outdir / "dashboard.html")
+    build_explorer(summary, args.outdir / "explorer.html")
 
 
 if __name__ == "__main__":

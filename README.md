@@ -6,18 +6,21 @@ This project digs into every US domestic flight from 2015 to answer that. It cle
 
 ---
 
-## 🎛️ Interactive dashboard
+## 🌐 Explore it yourself
+
+**👉 [Open the interactive site](https://jonahcha.github.io/US-Airline-Performance-Delay-Analysis/)**
+
+| | What you get |
+|---|---|
+| 📊 **[Dashboard](https://jonahcha.github.io/US-Airline-Performance-Delay-Analysis/dashboard.html)** | KPIs, airline rankings, cancellation causes, monthly trends, busiest airports, and a map. Hover, click, and use the dropdown. |
+| 🔎 **[Data explorer](https://jonahcha.github.io/US-Airline-Performance-Delay-Analysis/explorer.html)** | Every table behind the dashboard: 14 airlines, 628 airports, 12 months, and 4 cancellation causes. Search, sort any column, and click a row for its full breakdown. |
+| 📄 **[Original report](docs/Report_Of_Airlines.pdf)** | The earlier written analysis, with a comparison to the verified results below. |
 
 ![Dashboard preview](docs/images/dashboard_preview.png)
 
-Open **[`docs/dashboard.html`](docs/dashboard.html)** in any browser. It's one self-contained file, so it works offline.
-
-- 🖱️ **Hover** any bar, slice, or bubble for the details.
-- 🔽 **Use the dropdown** to flip the airline chart between on-time rate and flight count.
-- 🗺️ **Explore the map** of where flights start. Bigger bubbles mean busier airports, and greener bubbles mean more on-time flights.
-- 👆 **Click legend items** to hide or show them.
-
-**Want to share the link?** Turn on GitHub Pages (Settings → Pages → Deploy from branch `main`, folder `/docs`). The dashboard will then open at `https://jonahcha.github.io/US-Airline-Performance-Delay-Analysis/dashboard.html`.
+> **First time?** Turn on GitHub Pages once: go to **Settings → Pages → Deploy from a branch**, choose `main` and the `/docs` folder, then save. The links above go live within a minute or two.
+>
+> **No Pages?** Download the repo and open `docs/index.html` in any browser. Everything works offline.
 
 ---
 
@@ -107,7 +110,7 @@ pip install -r requirements.txt
 python airline_analysis.py --flights data/flights.csv --outdir docs
 ```
 
-That regenerates `docs/results.txt`, the four charts, and `docs/dashboard.html`. The pipeline reads the flights file in chunks, so it runs on a laptop with about 4 GB of memory.
+That regenerates `docs/results.txt`, the four charts, `docs/dashboard.html`, and `docs/explorer.html`. The pipeline reads the flights file in chunks, so it runs on a laptop with about 4 GB of memory.
 
 Run the tests:
 
@@ -137,9 +140,10 @@ On-time means arriving within 15 minutes of schedule, the FAA definition. The ra
 ```
 airline_analysis.py    # cleaning, merging, counting, command line
 dashboard.py           # builds the interactive dashboard
+explorer.py            # builds the searchable data explorer
 plots.py               # static charts for this README
 data/                  # airlines and airports (included), flights.csv (download)
-docs/                  # dashboard.html, results, charts, report, old dashboard
+docs/                  # index.html (site home), dashboard.html, explorer.html, results, charts
 tests/                 # pytest suite on synthetic data
 ```
 
