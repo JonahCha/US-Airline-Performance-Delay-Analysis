@@ -6,21 +6,13 @@ This project digs into every US domestic flight from 2015 to answer that. It cle
 
 ---
 
-## 🌐 Explore it yourself
+## Explore it yourself
 
-**👉 [Open the interactive site](https://jonahcha.github.io/US-Airline-Performance-Delay-Analysis/)**
+Download this repo, then open these files in any browser (they work offline):
 
-| | What you get |
-|---|---|
-| 📊 **[Dashboard](https://jonahcha.github.io/US-Airline-Performance-Delay-Analysis/dashboard.html)** | KPIs, airline rankings, cancellation causes, monthly trends, busiest airports, and a map. Hover, click, and use the dropdown. |
-| 🔎 **[Data explorer](https://jonahcha.github.io/US-Airline-Performance-Delay-Analysis/explorer.html)** | Every table behind the dashboard: 14 airlines, 628 airports, 12 months, and 4 cancellation causes. Search, sort any column, and click a row for its full breakdown. |
-| 📄 **[Original report](docs/Report_Of_Airlines.pdf)** | The earlier written analysis, with a comparison to the verified results below. |
-
-![Dashboard preview](docs/images/dashboard_preview.png)
-
-> **First time?** Turn on GitHub Pages once: go to **Settings → Pages → Deploy from a branch**, choose `main` and the `/docs` folder, then save. The links above go live within a minute or two.
->
-> **No Pages?** Download the repo and open `docs/index.html` in any browser. Everything works offline.
+- **docs/dashboard.html**: the interactive dashboard. Hover, click, and use the dropdown.
+- **docs/explorer.html**: every table behind the dashboard. Search, sort, and click any row.
+- **docs/Report_Of_Airlines.pdf**: the original report.
 
 ---
 
